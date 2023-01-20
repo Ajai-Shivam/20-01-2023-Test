@@ -1,0 +1,27 @@
+public class Question5 {
+    public static void main(String[] args) {
+        //Question 5
+
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String refString = sc.next();
+        str = str.toLowerCase();
+        refString = refString.toLowerCase();
+        for (int i = 0; i < refString.length(); i++) {
+           int count =  countTheNumberLettter(str,refString.charAt(i));
+            System.out.print(refString.charAt(i)+" : "+count);
+            System.out.println();
+        }
+
+
+    }
+    public static int countTheNumberLettter (String s,char letter){
+        if(s.indexOf(letter)==-1){
+            return 0;
+        }
+        else{
+           s= s.substring(s.indexOf(letter)+1);
+        }
+        return 1+countTheNumberLettter(s,letter);
+    }
+}
