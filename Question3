@@ -1,0 +1,32 @@
+public class Question3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        String[] X = new String[n];
+        for (int i = 0; i < n; i++) {
+            X[i] = sc.next();
+        }
+        String[] Y = new String[m];
+        for (int i = 0; i < m; i++) {
+            Y[i] = sc.next();
+        }
+        int count = 0;
+        for (int i = 0; i < X.length; i++) {
+            if(check(X[i],Y)){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+    public static boolean check (String s, String[] y){
+        for (int i = 0; i <y.length ; i++) {
+            for (int j = 0; j < y[i].length(); j++) {
+                if(s.indexOf(y[i].charAt(j))==-1){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
