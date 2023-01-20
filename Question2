@@ -1,0 +1,42 @@
+public class Question2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int sum_need = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        split(arr,sum_need);
+    }
+    public static void split(int [] arr,int sumneeded ) {
+        ArrayList<ArrayList<Integer>> al = new ArrayList<>();
+       int i = 0,j=0;
+       int sum = 0;
+       while (i<arr.length){
+           ArrayList<Integer> ad = new ArrayList<>();
+           sum+= arr[j];
+           j++;
+           if(j==arr.length){
+               i++;
+               j=i;
+               sum = 0;
+           }
+        if(sum==sumneeded){
+            for (int k = i; k < j; k++) {
+                ad.add(arr[k]);
+            }
+            al.add(ad);
+            i = j;
+            j = i;
+            sum = 0;
+        }
+        if(sum>sumneeded){
+            i++;
+            j =i ;
+            sum = 0;
+        }
+       }
+        System.out.println(al);
+    }
+}
