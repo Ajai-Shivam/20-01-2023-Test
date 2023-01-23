@@ -26,6 +26,11 @@ public class Recharge extends Main{
                 Main.ForBack.push(objYP);
                 objYP.display();
                 break;
+            case 4 :
+                Topups objTP = new Topups();
+                Main.ForBack.push(objTP);
+                objTP.display();
+                break;
             case 9:
                 ForBack.pop();
                 Main obj = ForBack.peek();
