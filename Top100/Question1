@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Question1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter The Number : ");
+        int n = sc.nextInt();
+        System.out.println("Multiplication Tables Of "+n+" :");
+        System.out.println();
+        for (int i = 1; i <=10 ; i++) {
+            System.out.println(n+" X "+i+" = "+(i*n));
+        }
+        System.out.println();
+        System.out.println("Subtraction Tables Of "+n+" :");
+        System.out.println();
+        for (int i = n; i <=n+10 ; i++) {
+            System.out.println(i+" - "+n+" = "+(i-n));
+        }
+    }
+}
