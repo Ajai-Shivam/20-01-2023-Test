@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "question": "1) Who Is The President Of India?",
+            "options" : [
+                "a) Droupadi Murmu", "b) vajpaye", "c) Nithin gadkari", "d) R.N.Ravi"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "2) What Is The National Flower Of India?",
+            "options" : [
+                "a)Lotus", "b)Hibisicus", "c)Sunflower", "d)Jasmine"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "3) Who Is The Vice President Of India",
+            "options" : [
+                "a)sushma swaraj", "b)Jagdeep Dhankhar", "c)nirmala seetharaman", "d)chidambaram "
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "4)who is the speaker of lok sabha?",
+            "options" : [
+                "a)om birla", "b)vajpaye", "c)nithin gadkari", "d)r.n.ravi"
+            ],
+            "answer": "A"
+        },
+        {
+            "question": "5)who is the speaker of rajya sabha?",
+            "options" : [
+                "a)sushma swaraj", "b)Jagdeep Dhankhar", "c)nirmala seetharaman", "d)chidambaram"
+            ],
+            "answer": "A"
+        }
+    ]
+}
