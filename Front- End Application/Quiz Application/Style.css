@@ -1,0 +1,43 @@
+#heading{
+    border: 10px;
+    display: block;
+    border-radius: 25px;
+    border-color: blueviolet;
+    background-color: black;
+    padding-top: 2%;
+    color: blueviolet;
+    padding-bottom: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center
+    
+}
+#Quiz{
+    color: white;
+}
+#bttn{
+    margin-top: 5%;
+    margin-left: 48%;
+}
+#Question{
+    background-color: blueviolet;
+    border-radius: 20px;
+    border: 10px;
+    padding-top: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.op {
+    background-color: black;
+    border-radius: 20px;
+    border: 10px;
+    padding-top: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 20px;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px ;
+}
+.op:hover{
+        background-color: blueviolet;
+}
