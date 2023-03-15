@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Operators</title>
+</head>
+<body>
+    <div>
+    <h1 style="color: blueviolet;">Calculator</h1>
+    Enter Number 1 :
+    <input type="number" id="no1" class="reset">
+    Enter Number 2 :
+    <input type="number" id="no2" class="reset">
+    <br><br>
+    <button id="add">Add</button><button id="sub">Subtract</button><button id="mul">Multiply</button><button id="divi">Divide</button>
+    <br>
+    <br>
+    Output : 
+    <input type="text" id="Result" class="reset">
+    <button id = "clear">Clear</button>
+</div>    
+</body>
+<script type="text/javascript">
+
+    var no1 = document.getElementById("no1");
+    var no2=document.getElementById("no2");
+    var Result = document.getElementById("Result");
+    var add=document.getElementById("add");
+    var sub=document.getElementById("sub");
+    var divi=document.getElementById("divi");
+    var mul=document.getElementById("mul");
+    var clear = document.getElementById("clear");
+    var reset = document.getElementsByClassName("reset");
+    add.onclick=function(){
+        Result.value = Number(no1.value)+Number(no2.value);  
+    };
+    sub.onclick=function(){
+        Result.value= Number(no1.value)-Number(no2.value);
+    
+    };
+    mul.onclick=function(){
+        Result.value=Number(no1.value)*Number(no2.value);  
+    };
+    divi.onclick=function(){
+        Result.value=Number(no1.value)/Number(no2.value);  
+    };
+    clear.onclick = function(){
+      reset.value = undefined;
+    };
+</script>
+</html>
