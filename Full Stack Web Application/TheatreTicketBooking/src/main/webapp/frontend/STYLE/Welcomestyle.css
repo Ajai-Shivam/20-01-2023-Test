@@ -1,0 +1,247 @@
+*{
+    box-sizing: border-box;
+}
+footer{
+    margin-top: 30%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Alkatra', cursive;
+}
+.navbar{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(176,0,191,1) 0%, rgba(181,0,0,1) 100%);
+    color: white;
+}
+.brand-img{
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+.navbarlinks{
+    height: 100%;
+}
+.navbarlinks ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+.navbarlinks li{
+    list-style: none;
+}
+.navbarlinks li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+.navbarlinks li :hover{
+    background-color: #555;
+}
+.toggle-button{
+    position:absolute;
+    top: 1.5rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+
+}
+button{
+    color: azure    ;
+}
+@media (max-width : 700px) {
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start ;
+    }
+        .toggle-button{
+            display: flex;
+        }
+        .navbarlinks{
+            display: none;  
+            width: 100%;
+        }
+        
+        .navbarlinks ul{
+            width: 100%;
+            flex-direction: column;
+    
+        }
+        .navbarlinks ul li{
+            text-align: center;
+        }
+        .navbarlinks ul li a{
+            padding: .5rem 1rem;
+        }
+
+        .navbarlinks.active{
+            display: flex;
+        }
+}
+#center {
+    margin-top: 10%;
+    margin-left: 40%;
+}
+#logindisplay{
+    display:none;
+    animation : ani 1s ease-out forwards;
+    opacity: 0;
+}
+@keyframes ani{
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.login{
+    width: 25rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    background:rgba(255, 255, 255,0.06) ;
+    box-shadow: 0 8px 92px 0 rgba(31, 38, 135, .37);
+    border-radius: 30px;
+    border-left: 1px solid rgba(255, 255, 255,0.3);
+    border-top: 1px solid rgba(255, 255, 255,0.3);
+
+}
+.login h2{
+    font-size: 30px;
+    padding-left: 33% ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) ;
+}
+.login label{
+    padding-left: 10%;
+
+}
+.login input{
+    padding: 15px 32px;
+    padding-left: 10px;
+    margin-left: 10%;
+    block-size: 15%;
+    width: 80%;
+}
+.login button{
+    margin-top: 10%;
+    justify-content: center;
+    margin-left: 95px;
+    block-size: 15%;
+    width: 50%;
+    border-radius: 20px;
+    background:linear-gradient(90deg, rgba(176,0,191,1) 0%, rgba(181,0,0,1) 100%);
+        font-family: 'Alkatra', cursive;
+        font-size: 20px;
+}
+.login button:hover{
+    background: linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(15,137,152,1) 51%, rgba(0,108,255,1) 100%);
+}
+#adminLoginDisplay{
+    display:none;
+    animation : ani 1s ease-out forwards;
+    opacity: 0;
+}
+
+.adlogin{
+    width: 25rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    background:rgba(255, 255, 255,0.06) ;
+    box-shadow: 0 8px 92px 0 rgba(31, 38, 135, .37);
+    border-radius: 30px;
+    border-left: 1px solid rgba(255, 255, 255,0.3);
+    border-top: 1px solid rgba(255, 255, 255,0.3);
+
+}
+.adlogin h2{
+    font-size: 30px;
+    padding-left: 30% ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) ;
+}
+.adlogin label{
+    padding-left: 10%;
+
+}
+.adlogin input{
+    padding: 15px 32px;
+    padding-left: 10px;
+    margin-left: 10%;
+    block-size: 15%;
+    width: 80%;
+}
+.adlogin button{
+    margin-top: 10%;
+    justify-content: center;
+    margin-left: 95px;
+    block-size: 15%;
+    width: 50%;
+    border-radius: 20px;
+    background:linear-gradient(90deg, rgba(176,0,191,1) 0%, rgba(181,0,0,1) 100%);
+        font-family: 'Alkatra', cursive;
+        font-size: 20px;
+}
+.adlogin button:hover{
+    background: linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(15,137,152,1) 51%, rgba(0,108,255,1) 100%);
+}
+#registerDisplay{
+    display:none;
+    animation : ani 1s ease-out forwards;
+    opacity: 0;
+}
+
+.regis{
+    width: 25rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    background:rgba(255, 255, 255,0.06) ;
+    box-shadow: 0 8px 92px 0 rgba(31, 38, 135, .37);
+    border-radius: 30px;
+    border-left: 1px solid rgba(255, 255, 255,0.3);
+    border-top: 1px solid rgba(255, 255, 255,0.3);
+
+}
+.regis h2{
+    font-size: 30px;
+    padding-left: 38% ;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) ;
+}
+.regis label{
+    padding-left: 10%;
+
+}
+.regis input{
+    padding: 15px 32px;
+    padding-left: 10px;
+    margin-left: 10%;
+    block-size: 15%;
+    width: 80%;
+}
+.regis button{
+    margin-top: 11%;
+    justify-content: center;
+    margin-left: 95px;
+    block-size: 15%;
+    width: 50%;
+    border-radius: 20px;
+    background:linear-gradient(90deg, rgba(176,0,191,1) 0%, rgba(181,0,0,1) 100%);
+        font-family: 'Alkatra', cursive;
+        font-size: 20px;
+}
+.regis button:hover{
+    background: linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(15,137,152,1) 51%, rgba(0,108,255,1) 100%);
+}

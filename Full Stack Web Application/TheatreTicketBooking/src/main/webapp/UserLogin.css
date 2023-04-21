@@ -1,0 +1,94 @@
+body{
+    font-family: 'Alkatra', cursive;
+}
+.navbar{
+background:linear-gradient(90deg, rgba(128,0,75,1) 0%, rgba(18,24,65,1) 65%, rgba(0,13,77,1) 100%);
+	}
+.navbar .container-fluid span{
+    padding: 10px;
+}
+.navbar .container-fluid button{
+    font-size: 10px;
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: transparent;
+    color:white;
+    border-color: black;
+}
+.navbar .container-fluid button:hover{
+    background-color:purple;
+    
+}
+#dashboard{
+    margin-left: 20px;
+}
+#center{
+   margin-top:  20px;
+}
+.nav a {
+    color: black;
+}
+ .nav-tabs .nav-link.active{
+    color: blueviolet;
+}
+.nav .nav-item :hover{
+    color: purple;
+}
+.card{
+	
+    display: flex;
+    flex-direction: column;
+    background:rgba(255, 255, 255,0.06) ;
+    box-shadow: 0 8px 92px 0 rgba(31, 38, 135, .37);
+    border-radius: 30px;
+    border-left: 1px solid rgba(255, 255, 255,0.3);
+    border-top: 1px solid rgba(255, 255, 255,0.3);
+    height: 22rem;
+	justify-content: space-between;
+}
+.card:hover{
+	transform:scale(1.1);
+}
+.text-center{
+	margin-top: 50px;
+}
+.card-body .btn{
+	justify-content: space-between;
+}
+.btn-primary{
+	background-color:maroon;
+	border-color: black;
+	border-radius: 20px;
+}
+.btn-primary:hover {
+	color: black;
+	background-color:orange;	
+}
+.modal-content {
+	margin-top: 40%;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: var(--bs-btn-active-color);
+    background-color: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
+}
+#dateButton .btn-outline-primary{
+	color: #2D2926FF;
+	border-color: #ED2B33FF;
+	
+}
+#dateButton .btn-outline-primary:hover {
+	color: #2D2926FF;
+	background-color: #ED2B33FF; 
+}
+#dateButton .btn-check:checked+.btn {
+	background-color: #ED2B33FF;
+}
+.modal-footer .btn-primary{
+	color: #2D2926FF;
+	background-color: #ED2B33FF;
+	border-color: white;
+	
+}

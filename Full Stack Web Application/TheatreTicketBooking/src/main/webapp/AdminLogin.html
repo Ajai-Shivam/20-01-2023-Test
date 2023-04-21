@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="./AdminLogin.css">
+	<link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+	 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+	
+</head>
+<body onload="loadingDtails()">
+	<header id="header">
+		<nav class="navbar">
+			<div class="container-fluid">
+				<span class="navbar-brand "><img src="./cinema.png"
+					width="40pxpx" height="40pxpx"> LA Cinima'S</span>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button class="btn me-md-2" type="button">Log Out</button>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main id = "main">
+		<nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">DashBoard</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Customize</button>
+      	</div>
+      </nav>
+       <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+          <section id = "analytics">
+            <div id="ana-Box">
+              <div  class = "analytics-Box">
+                <div class="left"><h4>Movies available</h4>
+                 <strong> <p id = "moviesAvailable"></p></strong>
+                  </div>
+                  <div class="right">
+                    <i class="bi bi-film"></i>		</div>				
+          
+              </div>
+            
+              <div class = "analytics-Box">
+                <div class="left"><h4>Total Users</h4>
+                 <strong> <p id = "userscount"></p></strong>
+                  </div>
+                  <div class="right">
+                    <i class="bi bi-people"></i>	</div>				
+          
+              </div>
+            
+                  
+              <div  class = "analytics-Box">
+                <div class="left"><h4>Tickets sold Today</h4>
+                 <strong> <p id = totaltickets></p></strong>
+                  </div>
+                  <div class="right">
+                    <i class="bi bi-clipboard2-check"></i>		</div>
+              </div>
+            
+              <div  class = "analytics-Box">
+                <div  class="left"><h4>Today's Total Revenue</h4>
+                <strong><p id = "totalRevenue"></p></strong>
+                </div>
+                <div class="right">
+                <i class="bi bi-cash-coin"></i>
+              </div>
+                </div>
+                
+      		
+            </section>
+            
+            
+            <section id = "adminData">
+            	 <h3>THEATRE DATA</h3>
+           		<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a onclick="displayTRDate()" class="nav-link" aria-current="page" >Revenue</a>
+  </li>
+  <li class="nav-item">
+    <a onclick="displayTSDate()" class="nav-link" >Ticket Sold</a>
+  </li>
+  <li class="nav-item">
+    <a onclick="showActive()" class="nav-link" >Make Show Inactive</a>
+  </li>
+  <li class="nav-item">
+    <a onclick="movieAnalytics()" class="nav-link" >Movies Data</a>
+  </li>
+</ul>	 
+            		
+            </section>
+            <section>
+              <div id="analyticsMovie" style="display: none;">
+              <h2 style="color: white;   font-family: 'Roboto', sans-serif;
+              ">Movies Available</h2>
+             	<div class="table-wrapper">
+             	            <table id = "movietable" class="table table-hover">
+                <thead>
+                <tr>
+                  <th>Movie Name</th>
+                  <th>Movie Duration</th>
+                  <th>Certificate</th>
+                  <th>Trailer</th>
+                </tr>
+                </thead>
+                <tbody id = "addMovieDetails">
+                
+
+                </tbody>
+            </table>
+            <button class="download" type="submit" onclick="downloadTable('movietable')">Export To Excel</button>
+        </div>
+               </div>
+        
+        
+        
+               <div id ="displayTS" style="display: none;">
+          <h2 style="text-align: center;text-align: center;margin-top: 50px;font-size: 20px;">Select Date For Checking Theatre Revenue</h2>
+          
+       <input onchange="displayTSDate()" id= "tsdate" type = "date" placeholder="Choose Date">
+       
+        </div>
+              <div id = "displayTSTable" style="display: none; width: 100%">			
+              <h2 style="color: white;   font-family: 'Roboto', sans-serif;
+              ">Ticket Sold Details </h2>
+              
+             <div class="table-wrapper">
+         <table id = "ticketSoldTable" class="table table-hover">
+           <thead>
+           <tr>
+                 <th>Booking ID</th>
+                  <th>User Name</th>
+                  <th>Screen Name</th>
+                  <th>Date</th>
+                  <th>Movie Name</th>
+                  <th>Payment Method</th>
+                  <th>Amount Paid</th>
+        </tr>
+        </thead>
+        <tbody id = "addTSDetails">
+        
+      
+        </tbody>
+        
+    </table>
+                <button class="download" type="submit" onclick="downloadTable('ticketSoldTable')">Export To Excel</button>
+    
+</div>
+        </div>
+       <div id = "displayActive" style="display: none; width: 100%">			
+              <h2 style="color: white;   font-family: 'Roboto', sans-serif;
+              ">Ticket Sold Details </h2>
+              
+             <div class="table-wrapper">
+         <table id = "activeTable" class="table table-hover">
+           <thead>
+           <tr>
+                 <th>Date</th>
+                  <th>Show Timing</th>
+                  <th>Movie Name</th>
+                  <th>Date</th>
+                  <th>Active/Inactive</th>
+                  
+        </tr>
+        </thead>
+        <tbody id = "addActiveTable">
+        
+      
+        </tbody>
+        
+    </table>
+    
+</div>
+        </div>
+  
+              
+          <div id ="displayTR" style="display: none;">
+          <h2 style="text-align: center;text-align: center;margin-top: 50px;font-size: 20px;">Select Date For Checking Theatre Revenue</h2>
+          
+       <input onchange="totalRevenue()	" id= "trDate" type = "date" placeholder="Choose Date">
+       
+        </div>
+        
+        
+        <div id ="displayTRTable" style="display: none;">
+          
+        <h2 style="color: white;   font-family: 'Roboto', sans-serif;
+        ">Theatre Revenue</h2>
+        <div class="table-wrapper">
+    <table id = "RevenueTable" class="table table-hover">
+        <thead>
+        <tr>
+                  <th>Show Timing</th>
+            <th>Movie Name</th>
+            <th>Revenue</th>
+        </tr>
+        </thead>
+        <tbody id = "addTRDetails">
+       
+      
+        <tbody>
+        
+        
+    </table>
+                    <button class= "download" type="submit" onclick="downloadTable('RevenueTable')">Export To Excel</button>
+    
+</div>
+    </div>      
+           </section>
+
+
+
+
+
+        </div>
+        
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+         
+         
+         
+         
+          <section id = "customize">
+          
+            <div id="cus-box">
+             <div id="toastbar">
+    		</div>
+              <div class="wrapper">
+		    <div class="cols">
+             
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(./Untitled\ design.jpg)">
+                          <div class="inner">
+                              <p>Add Show</p>
+                <span> </span>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>You Can Add Shows To Your Screens  </p>
+                              <button  data-bs-toggle="modal" data-bs-target="#addShow" onclick="Addshow()">Add Show</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+   </div>
+            
+             <div class="wrapper">
+		    <div class="cols">
+             
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(./Untitled\ design.jpg)">
+                          <div class="inner">
+                              <p>Add Movie</p>
+                <span> </span>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>You Can Add New Movies In Your Theatre</p>
+                              <button data-bs-toggle="modal" data-bs-target="#addMov" >Add Movie</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+   </div>
+            
+            
+                  
+            <div class="wrapper">
+		    <div class="cols">
+             
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(./Untitled\ design.jpg)">
+                          <div class="inner">
+                              <p>Update Show</p>
+                <span> </span>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>You Can Update Some Other Movie In A Existing Show</p>
+                              <button data-bs-toggle="modal" data-bs-target="#updateShow" onclick="onupdateShow()">Update Show</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+   </div>
+                  
+            <div class="wrapper">
+		    <div class="cols">
+             
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(./Untitled\ design.jpg)">
+                          <div class="inner">
+                              <p>Delete Movie</p>
+                <span> </span>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>You Can Delete Movie And Can Replace With Another Movie</p>
+                              <button data-bs-toggle="modal" data-bs-target="#DeleteMovie" onclick="onDeleteMovie()">Delete Movie</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+   </div>
+              
+              
+           
+                  
+            <div class="wrapper">
+		    <div class="cols">
+             
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(./Untitled\ design.jpg)">
+                          <div class="inner">
+                              <p>Delete Show</p>
+                <span> </span>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>You Can Delete a Existing Show</p>
+                              <button data-bs-toggle="modal" data-bs-target="#DeleteShow" onclick="ondeleteshow()">Delete Show</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+   </div>
+   
+   
+   <div  class="modal fade" id="addShow" tabindex="-1" aria-labelledby="addShowLabel" aria-hidden="true">
+ 
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+  
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Show</h1>
+        <button id ="addClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		<label for="screen">Select Screen:</label>
+		<select id="chooseScreen" name="SelectedScreen">
+			 <option value="1">Screen 1</option>			 
+			 <option value="2">Screen 2</option>	
+			 <option value="3">Screen 3</option>	
+		</select>
+	
+		<label for="showtiming">Show Timing :</label>
+		<input  type="time" id="showtiming" name="showtiming"  >
+		
+		
+		<label for="SelectDate">Select Date : </label>
+		<select id="SelectDate" name="SelectDate">
+				
+		
+		</select>
+		
+		<label for="addMovie">Select Movie : </label>
+		<select id="addMovie" name="SelectMovie">
+				
+		
+		</select>
+		
+		
+		
+		
+		
+		<span class="error" id="screen-error"></span>
+		<span class="error" id="showtiming-error"></span>
+		<span class="error" id="date-error"></span>
+
+       	
+      </div>
+       <div class="modal-footer">
+        <button onclick="AddShowConform()"  type="button" class="btn btn-primary" onclick="addMovieSubmit()">Confirm</button>
+      </div>
+     
+    </div>
+  </div>
+  
+</div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
+     <div  class="modal fade" id="addMov" tabindex="-1" aria-labelledby="addMovLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Movie</h1>
+        <button id  = "closeMovieAdd" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id ="addform" class="modal-body">
+      
+        <label for="movie-name">Movie Name:</label>
+        <input type="text" id="movie-name" name="movie-name" required>
+      
+        <label for="movie-duration">Duration of Movie:</label>
+        <input type="text" id="movie-duration" name="movie-duration" required>
+      
+        <label for="trailer-url">Trailer URL:</label>
+        <input type="url" id="trailer-url" name="trailer-url" required>
+      
+        <label for="movie-certificate">Movie Certificate:</label>
+        <select id="movie-certificate" name="movie-rating">
+          <option value="">-- Select --</option>
+          <option value="U">U</option>
+          <option value="U/A">U/A</option>
+          <option value="A">A</option>
+          <option value="S">S</option>
+        </select>
+      
+        <label for="movie-banner">Movie Banner URL:</label>
+        <input type="url" id="movie-banner" name="movie-banner" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="addMovieSubmit()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
+   
+   
+   
+   
+     <div  class="modal fade" id="updateShow" tabindex="-1" aria-labelledby="UpdateShowLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Show</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <label for="UpdScreenName">Select Screen : </label>
+       <select id="UpdScreenName" >
+          <option value="">-- Select --</option>
+          <option value="1">Screen 1</option>
+          <option value="2">Screen 2</option>
+          <option value="3">Screen 3</option>
+        </select>
+        
+        <label for="UpdDate">Select Date : </label>
+       <select onchange="viewShow()" id="UpdDate" >
+                   <option value="">-- Select --</option>
+         
+        </select>
+        <label for="UpdShow">Select Show : </label>
+       <select id="UpdShow" >
+            <option value="">-- Select --</option>
+         
+        </select>
+        <label for="UpdShow">Select Movie : </label>
+        <select id = "UpdMovie">
+        
+        </select>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button onclick = "updateShow()" type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+     <div  class="modal fade" id="DeleteShow" tabindex="-1" aria-labelledby="DeleteShowLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Show</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       	<table style="width: 100%; font-family: 'Montserrat';" id = "ShowsTable" class= "table-primary table-hover" >
+       			<thead>
+       				<tr>
+       		<th>Date</th>
+       		<th>Show_Timing</th>
+       		<th>Movie Currently</th>
+       		<th>Remove</th>
+       		</tr>
+       			
+       			</thead>
+       		<tbody id = "ShowRemoveTable">
+       			
+       			
+       		</tbody>
+       	
+       	</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <div  class="modal fade" id="DeleteMovie" tabindex="-1" aria-labelledby="DeleteMovieLabel" aria-hidden="true">
+  <div style="width:1500px" class="modal-dialog modal-xl modal-dialog-centered">
+    <div  class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Movie</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       			<table style="width: 100%; font-family: 'Montserrat';" id = "moviesTable" class= "table-primary table-hover" >
+       			<thead>
+       				<tr>
+       		<th>Movie Name</th>
+       		<th>Movie Duration</th>
+       		<th>Trailer URL </th>
+       		<th>Certificate</th>
+       		<th>Banner URL</th>
+       		<th>Remove</th>
+       		</tr>
+       			
+       			</thead>
+       		<tbody id = "MovieRemoveTable">
+       			
+       			
+       		</tbody>
+       	
+       	</table>
+      </div>
+      
+    </div>
+  </div>
+</div>
+              
+              
+              
+            </section>
+
+
+
+
+
+
+        </div>
+
+      </div>
+	</main>
+	<script type="text/javascript" src="./table2excel.js"></script>
+	<script src="./AdminLogin.js" type="text/javascript"></script>
+</body>
+</html>

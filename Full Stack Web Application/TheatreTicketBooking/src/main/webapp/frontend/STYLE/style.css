@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .brand-img {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .brand-img img {
+    margin-right: 10px;
+  }
+  
+  .navbarlinks ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+  }
+  
+  .navbarlinks ul li {
+    margin: 0 10px;
+  }
+  
+  .navbarlinks ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .navbarlinks ul li a:hover {
+    color: #ffd700;
+  }
+  
+  .toggle-button {
+    display: none;
+  }
+  
+  .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 5px auto;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  /* Login styles */
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login, .adlogin, .regis {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  }
+  
+  .login h2, .adlogin h2, .regis h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .login label, .adlogin label, .regis label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .login input, .adlogin input, .regis input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .login button, .adlogin button, .regis button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .login button:hover, .adlogin button:hover, .regis button:hover {
+    background-color: #ffd700;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .toggle-button {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .navbarlinks {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      display: none;
+    }
+  
+    .navbarlinks.show {
+      display: block;
+    }
+    .login {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        animation: slide-in 0.5s ease-out both;
+      }
+      
+      @keyframes slide-in {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+}
+  
